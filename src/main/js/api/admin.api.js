@@ -1,9 +1,9 @@
 import "regenerator-runtime/runtime";
 
-async function sendSignIn(credentials) {
+async function adminUsers(credentials) {
   try {
-    const response = await fetch("http://localhost:7070/api/auth/signin", {
-      method: "POST",
+    const response = await fetch("http://localhost:7070/api/admin/list", {
+      method: "GET",
       body: JSON.stringify(credentials),
       headers: {
         "Content-Type": "application/json",
@@ -20,4 +20,4 @@ async function sendSignIn(credentials) {
   }
 }
 
-export default sendSignIn;
+export default adminUsers;

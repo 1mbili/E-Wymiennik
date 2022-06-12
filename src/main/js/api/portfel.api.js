@@ -1,10 +1,12 @@
 import "regenerator-runtime/runtime";
 
-async function sendSignIn(credentials) {
+async function getWallet(idKlienta) {
+  const url = "http://localhost:7070/api/portfele/" + idKlienta; 
   try {
-    const response = await fetch("http://localhost:7070/api/auth/signin", {
-      method: "POST",
-      body: JSON.stringify(credentials),
+
+
+    const response = await fetch(url, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
@@ -20,4 +22,5 @@ async function sendSignIn(credentials) {
   }
 }
 
-export default sendSignIn;
+
+export default getWallet;

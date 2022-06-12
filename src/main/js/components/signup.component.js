@@ -35,21 +35,23 @@ const SignUp = (props) => {
     setEnteredEmail(event.target.value);
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
 
     const submitData = {
       username: enteredUsername,
       password: enteredPassword,
-      email : enteredEmail,
+      email: enteredEmail,
       pesel: enteredPESEL,
       imie: enteredFirstName,
       nazwisko: enteredSecondName,
       adres: enteredadres,
       role: [],
     };
-    sendSignUp(submitData);
-    console.log(submitData);
+    const response = sendSignUp(submitData).then(function (response) {
+      console.log(response);
+    });
+    console.log("respons" + response);
     setEnteredUsername("");
     setEnteredPassword("");
     setEnteredFirstName("");
@@ -57,7 +59,6 @@ const SignUp = (props) => {
     setEnteredPESEL("");
     setEnteredEmail("");
     setEnteredAdres("");
-
   };
 
   return (
@@ -89,7 +90,7 @@ const SignUp = (props) => {
           type="email"
           className="form-control"
           placeholder="Enter email"
-          value = {enteredEmail}
+          value={enteredEmail}
           onChange={emailChangeHandler}
         />
       </div>
@@ -99,7 +100,7 @@ const SignUp = (props) => {
           type="number"
           className="form-control"
           placeholder="Enter PESEL"
-          value = {enteredPESEL}
+          value={enteredPESEL}
           onChange={peselChangeHandler}
         />
       </div>
@@ -108,7 +109,7 @@ const SignUp = (props) => {
         <input
           className="form-control"
           placeholder="Enter Adres"
-          value = {enteredadres}
+          value={enteredadres}
           onChange={adresChangeHandler}
         />
       </div>
@@ -118,7 +119,7 @@ const SignUp = (props) => {
           type="password"
           className="form-control"
           placeholder="Enter password"
-          value= {enteredPassword}
+          value={enteredPassword}
           onChange={passwordChangeHandler}
         />
       </div>
@@ -128,7 +129,7 @@ const SignUp = (props) => {
           type="username"
           className="form-control"
           placeholder="Enter username"
-          value = {enteredUsername}
+          value={enteredUsername}
           onChange={usernameChangeHandler}
         />
       </div>

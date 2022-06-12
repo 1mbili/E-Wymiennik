@@ -1,15 +1,12 @@
-import React from 'react'
-import './node_modules/bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import LoggingGrid from './components/LoggingGrid'
+import React from "react";
+import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+var ReactDOM = require("react-dom");
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import LoggingGrid from "./components/LoggingGrid";
 
 const App = () => {
-  return (
-    <LoggingGrid/>
-  )
-}
+  return <LoggingGrid />;
+};
 
-const root = ReactDOM.createRoot(document.getElementById("react"));
-root.render(<App />);
+ReactDOM.render(<App />, document.getElementById("react"));

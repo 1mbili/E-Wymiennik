@@ -1,16 +1,16 @@
-import 'regenerator-runtime/runtime'
+import "regenerator-runtime/runtime";
+import axios from "axios";
 
 async function sendSignUp(credentials) {
-    console.log("dzialam")
-    const response = await fetch("http://localhost:7070/api/auth/signup", {
-        method: "POST",
-        body: JSON.stringify(credentials),
-        headers: {
-            'Content-Type' : 'application/json'
-        }
+  const headers = { "Content-Type": "application/json" };
+  axios
+    .post("http://localhost:7070/api/auth/signup", credentials, { headers })
+    .then((response) => console.log(response.data.id))
+    .catch((error) => {
+      console.error(`Error: ${error.message}`);
+      console.error(`Error: ${error.response.data.message}`);
+      alert(error.response.data.message);
     });
-    const data = await response.json();
-    console.log(data);
 }
 
 export default sendSignUp;
